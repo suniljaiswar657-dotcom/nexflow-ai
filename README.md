@@ -2,57 +2,45 @@
 
 Next-generation AI Business Automation SaaS for Indian small and growing businesses.
 
-NEXFLOW brings lead management, sales assistance, customer engagement and repeatable business workflows into one workspace.
+## Current MVP
 
-## V1 product direction
-
-- AI Command Center
-- Lead Management CRM
-- AI Sales Assistant
-- WhatsApp Automation
-- Automated Follow-up Engine
-- Monthly Subscription System
-
-## Current build status
-
-The repository currently contains the first responsive Next.js frontend foundation and a Command Center preview. The lead records and activity feed shown in the preview are **demo data**, not live customer records. Authentication, database persistence, OpenAI-powered actions, WhatsApp provider integration, billing and production automation are not connected yet.
-
-## Technology
-
-- Next.js 14 + React + TypeScript
-- Tailwind CSS
-- Supabase (planned for authentication and database)
-- OpenAI API (planned for AI features)
-- WhatsApp Business Platform/provider (planned)
-- Razorpay (planned for subscriptions)
-- Vercel (deployment target)
+This repository includes a responsive static business command center with:
+- Lead CRM: create, edit, search, filter and delete leads.
+- Pipeline dashboard and analytics.
+- Workflow configuration prototypes for enquiry response, follow-up, customer welcome and daily summaries.
+- Business message drafting templates.
+- Indicative subscription plan UI.
+- Browser-local persistence for demo records.
 
 ## Run locally
 
-```bash
-npm install
-npm run dev
-```
+Open `index.html` in a browser, or serve the repository root with a static web server. No build command or dependencies are required for this MVP.
 
-Open http://localhost:3000.
+## Deploy on Vercel
 
-## Environment variables
+Import this repository into Vercel. Use the repository root as the output directory and leave the build command empty. `vercel.json` is included.
 
-Add secrets only in your deployment provider's environment settings. Never commit API keys.
+## Important limitations
 
-Planned variables:
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY` (server only)
-- `OPENAI_API_KEY` (server only)
-- Razorpay server credentials (when billing is implemented)
+- Demo records are stored only in the current browser. There is no authentication, multi-user database or cross-device sync.
+- Workflow toggles are prototypes; they do not send messages or run background jobs.
+- Message drafts use local templates, not a live AI model.
+- Pricing is illustrative; payment checkout and subscriptions are not connected.
+- Do not enter real customer personal data until authentication, server-side authorization, database storage, backups and privacy controls are implemented.
 
-## Build
+## Production roadmap
 
-```bash
-npm run build
-```
+1. Supabase Auth, tenant-isolated PostgreSQL schema and Row Level Security.
+2. Server-side OpenAI integration with usage limits and audit logs.
+3. Real workflow execution, scheduling, retries and consent-aware notifications.
+4. WhatsApp Business Platform integration using approved templates and opt-in.
+5. Razorpay subscriptions, webhook verification and plan entitlements.
+6. Automated tests, monitoring, export/deletion and security review.
 
-## Delivery sequence
+## Security
 
-Build → Test → Fix → Verify → Deploy → First Customer.
+No secrets are required for this static MVP. Never commit API keys or environment files.
+
+## License
+
+MIT
